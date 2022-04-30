@@ -12,15 +12,25 @@
 
                 <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ route('login') }}">
                     @csrf
+                    
+                    <div class="form-group row">
+                        <div class="col-md-6 offset-md-3">
+                            <a href="{{ route('login.google') }}" class="btn btn-danger btn-block">Login with Google</a>
+                            <a href="{{ route('login.facebook') }}" class="btn btn-danger btn-block">Login with Facebook</a>
+                            <a href="{{ route('login.github') }}" class="btn btn-danger btn-block">Login with Github</a>
+                        </div>
+                    </div>
+
+                    <p style="text-align: center">OR</p>
 
                     <div class="flex flex-wrap">
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        {{-- <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('E-Mail Address') }}:
-                        </label>
+                        </label> --}}
 
                         <input id="email" type="email"
                             class="form-input w-full @error('email') border-red-500 @enderror" name="email"
-                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="E-Mail Address">
 
                         @error('email')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -30,13 +40,13 @@
                     </div>
 
                     <div class="flex flex-wrap">
-                        <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        {{-- <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Password') }}:
-                        </label>
+                        </label> --}}
 
                         <input id="password" type="password"
                             class="form-input w-full @error('password') border-red-500 @enderror" name="password"
-                            required>
+                            required placeholder="Password">
 
                         @error('password')
                         <p class="text-red-500 text-xs italic mt-4">

@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 
+use App\Models\Post;
+use App\Models\Comment;
+use App\Models\User;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use DB;
+use App\Http\Controllers\Requests\PostsRequest;
 class PostsController extends Controller
 {
  
@@ -72,10 +76,25 @@ class PostsController extends Controller
      */
     public function show($slug)
     {
-        return view('blog.show')
-            ->with('post', Post::where('slug', $slug)->first());
-    }
+        $post =  Post::where('slug', $slug)->first();
+        $comments =  Comment::where('post_id', $post->id)->paginate();
 
+        return view('blog.show')
+            ->with([
+                'post'=> $post,
+                'comments' => $comments
+        ]);
+    }
+    public function showComment($slug)
+    {
+        $post =  Post::where('slug', $slug)->first();
+     
+        return view('posts.show', [
+            'post'     => $post,
+            'comments' => $post->comments()->paginate(5)
+        ]);
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -128,5 +147,20 @@ class PostsController extends Controller
         return redirect('/blog')
             ->with('message', 'Your post has been deleted!');
     }
-}
+    public function search(Request $request){
+        $posts = Post::where('title', 'like', '%' .$request->search . '%')->get();
+    return view('blog.search_post',compact('posts'));
+    }
+    public function storeComment(Request $request)
+    {
+        $data = $request->validated();
 
+        $post = new Post();
+        $post->title = $data['title'];
+        $post->text  = $data['text'];
+        $post->save();
+
+        return redirect('/blog/'.$post->id);
+    }
+    
+}

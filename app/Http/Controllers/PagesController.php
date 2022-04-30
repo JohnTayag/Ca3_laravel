@@ -10,4 +10,9 @@ class PagesController extends Controller
     {
         return view('index');
     }
+
+    // public function New_Page()
+    // {
+    //     return view('New_Page');
+    // }
 }
