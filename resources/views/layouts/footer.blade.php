@@ -1,5 +1,5 @@
 <footer class="bg-gray-800 py-20 mt-20">
-    <div class="sm:grid grid-cols-3 w-4/5 pb-10 m-auto border-b-2 border-gray-700">
+    <div class="sm:grid grid-cols-2 w-4/5 pb-10 m-auto border-b-2 border-gray-700">
         <div>
             <h3 class="text-l sm:font-bold text-gray-100">
                 Pages
@@ -37,28 +37,18 @@
             <ul class="py-4 sm:text-s pt-4 text-gray-400">
                 <li class="pb-1">
                     <a href="/">
-                        What we do
+                        About Us
                     </a>
                 </li>
                 <li class="pb-1">
                     <a href="/">
-                        Address
+                        Contact Us
                     </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/">
-                        Phone
-                    </a>
-                </li>
-                <li class="pb-1">
-                    <a href="/">
-                        Contact
-                    </a>
-                </li>
+                </li>             
             </ul>
         </div>
 
-        <div>
+        {{-- <div>
             <h3 class="text-l sm:font-bold text-gray-100">
                 Latest posts
             </h3>
@@ -85,7 +75,7 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
     </div>
     <p class="w-25 w-4/5 pb-3 m-auto text-xs text-gray-100 pt-6">
         Copyright 2017-2021 Code With Dary. All Rights Reserved

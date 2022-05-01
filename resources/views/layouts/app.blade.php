@@ -20,9 +20,15 @@
         <header class="bg-gray-800 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                    {{-- <img class="navbar_img" src="{{ asset('resources/images/movie_logo.png') }}"> --}}
+                    {{-- <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
                         {{ config('app.name', 'Laravel') }}
-                    </a>
+                    </a> --}}
+                    <h1 class="sm:text-white text-3xl text-shadow-md">
+                        John Kudzais's Movie Blog</h1><br>
+                        <h1 class="sm:text-white text-1.5xl text-shadow-md">
+                            A Movie Blog for the latest Movie Reviews, Trailers and More</h1>
+
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                     <a class="no-underline hover:underline" href="/">Home</a>
@@ -33,7 +39,7 @@
                             <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     @else
-                        <span>{{ Auth::user()->name }}</span>
+                        <span>Hi {{ Auth::user()->name }}</span>
 
                         <a href="{{ route('logout') }}"
                            class="no-underline hover:underline"
