@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CommentsController;
-use Illuminate\Support\Facades\Auth;
+use \App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,21 +18,18 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [PagesController::class, 'index'])->name('index');
-Route::post('/search_post',[PostsController::class,'search']);
+
 Route::resource('/blog', PostsController::class); 
-Route::post('/blog/{post}/comments', [CommentsController::class, 'storeComment']);
-Route::delete('/comments/{comment}', [CommentsController::class, 'destroy']); 
+Route::resource('/about', AboutController::class);
 
 Auth::routes();
 
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/blog/{post}/comments', [CommentsController::class, 'storeComment']);
+Route::delete('/comments/{comment}', [CommentsController::class, 'destroy']); 
 
-// Password Reset Routes
-Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
-Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
-Route::post('password/reset', 'Auth\PasswordController@reset');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Google login
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
