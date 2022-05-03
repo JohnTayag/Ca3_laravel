@@ -22,14 +22,13 @@ Route::get('/', [PagesController::class, 'index'])->name('index');
 
 Route::resource('/blog', PostsController::class); 
 Route::resource('/about', AboutController::class);
-
 Auth::routes();
 
 Route::post('/blog/{post}/comments', [CommentsController::class, 'storeComment']);
 Route::delete('/comments/{comment}', [CommentsController::class, 'destroy']); 
 
-Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 // Google login
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
