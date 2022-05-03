@@ -74,25 +74,33 @@ class PostsController extends Controller
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
-    {
-        $post =  Post::where('slug', $slug)->first();
-        $comments =  Comment::where('post_id', $post->id)->paginate();
+    // public function show($slug)
+    // {
+    //     $post =  Post::where('slug', $slug)->first();
+    //     $comments =  Comment::where('post_id', $post->id)->paginate();
 
-        return view('blog.show')
-        //     ->with([
-        //         'post'=> $post,
-        //         'comments' => $comments
-        // ]);
-        ->with('post', Post::where('slug', $slug)->first());
+    //     return view('blog.show')
+    //     //     ->with([
+    //     //         'post'=> $post,
+    //     //         'comments' => $comments
+    //     // ]);
+    //     ->with('post', Post::where('slug', $slug)->first());
+    // }
+    public function show($slug, Post $post)
+    {
+        return view('blog.show', [
+            'post'     => $post,
+            // 'comments' => $post->comments()->paginate(5)
+        ])->with('post', Post::where('slug', $slug)->first());
     }
+
     public function showComment($slug)
     {
         $post =  Post::where('slug', $slug)->first();
      
         return view('posts.show', [
             'post'     => $post,
-            'comments' => $post->comments()->paginate(5)
+            // 'comments' => $post->comments()->paginate(5)
         ]);
     }
     

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\CommentsController;
+// use App\Http\Controllers\CommentsController;
 use \App\Http\Controllers\HomeController;
 
 /*
@@ -24,8 +24,8 @@ Route::resource('/blog', PostsController::class);
 Route::resource('/about', AboutController::class);
 Auth::routes();
 
-Route::post('/blog/{post}/comments', [CommentsController::class, 'storeComment']);
-Route::delete('/comments/{comment}', [CommentsController::class, 'destroy']); 
+// Route::post('/blog/{post}/comments', [CommentsController::class, 'storeComment']);
+// Route::delete('/comments/{comment}', [CommentsController::class, 'destroy']); 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');

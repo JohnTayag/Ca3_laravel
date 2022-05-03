@@ -9,7 +9,7 @@ use Illuminate\Http\RedirectResponse;
 
 class CommentsController extends Controller
 {
-    public function storeComment(Post $post, CommentsRequest $request): RedirectResponse
+    public function store(Post $post, CommentsRequest $request): RedirectResponse
     {
         $data = $request->validated();
         $comment = new Comment();
@@ -27,4 +27,4 @@ class CommentsController extends Controller
         $comment->delete();
         return back();
     }
-}
+} 
