@@ -33,12 +33,12 @@
             type="text"
             name="title"
             value="{{ $post->title }}"
-            class="bg-blue-500 rounded-3xl block border-b-2 w-full h-20 text-6xl outline-none">
+            class="bg-blue-500 cursor-pointer rounded-3xl block border-b-2 w-full h-20 text-6xl outline-none">
 
         <textarea 
             name="description"
             placeholder="Description..."
-            class="py-20 rounded-3xl bg-pink-500 block border-b-2 w-full h-60 text-xl outline-none">{{ $post->description }}</textarea> 
+            class="py-20 rounded-3xl bg-pink-500 cursor-pointer block border-b-2 w-full h-60 text-xl outline-none">{{ $post->description }}</textarea> 
 
         <button    
             type="submit"

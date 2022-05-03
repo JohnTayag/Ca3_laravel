@@ -32,12 +32,12 @@
             type="text"
             name="title"
             placeholder="Title..."
-            class="bg-transparent block border-b-2 w-full h-20 text-4xl outline-none">
+            class="bg-blue-500 cursor-pointer rounded-3xl block border-b-2 w-full h-20 text-4xl outline-none">
 
         <textarea 
             name="description"
             placeholder="Description..."
-            class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
+            class=" py-20 cursor-pointer bg-pink-500 rounded-3xl block border-b-2 w-full h-60 text-xl outline-none"></textarea>
 
         <div class="bg-grey-lighter pt-15">
             <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
