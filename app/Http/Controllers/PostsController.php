@@ -80,10 +80,11 @@ class PostsController extends Controller
         $comments =  Comment::where('post_id', $post->id)->paginate();
 
         return view('blog.show')
-            ->with([
-                'post'=> $post,
-                'comments' => $comments
-        ]);
+        //     ->with([
+        //         'post'=> $post,
+        //         'comments' => $comments
+        // ]);
+        ->with('post', Post::where('slug', $slug)->first());
     }
     public function showComment($slug)
     {
