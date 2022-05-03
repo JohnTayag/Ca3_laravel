@@ -3,7 +3,7 @@
 @section('content')
 <div class="w-4/5 m-auto text-left">
     <div class="py-15">
-        <h1 class="text-6xl">
+        <h1 class="text-4xl">
             Create Post
         </h1>
     </div>
@@ -32,7 +32,7 @@
             type="text"
             name="title"
             placeholder="Title..."
-            class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+            class="bg-transparent block border-b-2 w-full h-20 text-4xl outline-none">
 
         <textarea 
             name="description"
@@ -53,7 +53,7 @@
 
         <button    
             type="submit"
-            class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+            class="uppercase mt-15 bg-purple-500 text-black-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
             Submit Post
         </button>
     </form>
