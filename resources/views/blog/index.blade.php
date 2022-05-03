@@ -23,7 +23,7 @@
             @endif
         </div>
     </div>
-    <div class="px-80 gap-4">
+    <div class="px-80 gap-1">
         @foreach ($posts as $post)
             <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
                 <a href="#">
