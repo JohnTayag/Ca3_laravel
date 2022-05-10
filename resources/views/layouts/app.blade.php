@@ -37,7 +37,7 @@
                     <h1 class="text-white text-3xl text-shadow-md">
                         John Kudzais's Movie Blog</h1><br>
                         <h1 class="text-white text-1.5xl text-shadow-md">
-                            A Movie Blog for the latest Movie Reviews, Trailers and More</h1>
+                            A Movie Blog for the latest Movie Reviews, Trailers and More.</h1>
 
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
