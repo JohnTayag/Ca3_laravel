@@ -18,4 +18,4 @@ class CommentsRequest extends FormRequest
             'text'   => ['required', 'string', 'max:500'],
         ];
     }
-} 
+}

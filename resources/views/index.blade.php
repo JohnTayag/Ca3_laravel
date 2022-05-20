@@ -26,12 +26,12 @@
             <h2 class="text-3xl font-extrabold text-gray-600">
                 HOTEL TRANSYLVANIA: TRANSFORMANIA (2022) REVIEW
             </h2>
-            
+
             <p class="py-8 text-gray-500 text-s">
                 A SERVICEABLE (YET UNCESSARY) MONSTER CODA TO THE FRANCHISE   In 2012, animated director / writer Genndy Tartakovsky (along with a story by Todd Durham) released the cartoon movie Hotel Transylvania. The film, which starred the voice talents of Adam Sandler, Selena Gomez, Andy Samberg, and many others, told the story of Count Dracula’s daughter Mavis and how she finds an
             </p>
 
-            <a 
+            <a
                 href="/blog"
                 class="uppercase bg-blue-500 text-gray-100 text-s font-extrabold py-3 px-8 rounded-3xl">
                 Read More
@@ -41,7 +41,7 @@
 
     {{-- sponsors with images? --}}
     {{-- <div class="text-center p-15 bg-black text-white">
-        <h2 class="text-2xl pb-5 text-l"> 
+        <h2 class="text-2xl pb-5 text-l">
             We are sponsored by...
         </h2>
 
@@ -125,7 +125,7 @@
                     Mei Lee is a 13-year-old girl who is torn between being her mother's obedient daughter and the chaos of her youth. As if that were not enough, when she gets too excited, she turns into a big red panda.
                 </h3>
 
-                <a 
+                <a
                     href="/blog"
                     class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
                     Read More
@@ -150,7 +150,7 @@
                     Aaron and Dave, who run a popular late-night show, get a chance to interview Kim Jong-un. The CIA decides to take advantage of the opportunity and devices a plan to assassinate the infamous dictator.
                 </h3>
 
-                <a 
+                <a
                     href="/blog"
                     class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
                     Read More
@@ -173,7 +173,7 @@
                     Accountant Calvin Joyner's life changes drastically after Bob Stone, his old classmate from high school, drags him into a dubious covert operation.
                 </h3>
 
-                <a 
+                <a
                     href="/blog"
                     class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
                     Read More
@@ -185,5 +185,5 @@
         </div>
     </div>
 
-    
+
 @endsection

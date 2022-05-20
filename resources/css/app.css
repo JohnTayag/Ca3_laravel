@@ -4,9 +4,9 @@
 
 @import "tailwindcss/utilities";
 
-.background-image 
+.background-image
 {
-    background-image: url('https://wallpapermemory.com/uploads/427/funny-movie-background-hd-1920x1200-219593.jpg');
+    background-image: url('https://wallpapermemory.com/uploads/427/funny-movie-background-hd-1920x1200-219593.jpg%27);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use \Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
@@ -19,6 +18,11 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
+    }
+
     public function sluggable(): array
     {
         return [
@@ -26,10 +30,5 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
-    }
-
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class);
     }
 }

@@ -15,12 +15,11 @@ Setting up your development environment on your local machine: <br>
 ```
 git clone git@github.com:codewithdary/laravel-8-complete-blog.git
 cd laravel-8-complete-blog
-step 1:cp .env.example .env 
-step 2:composer install
-step 3:php artisan key:generate
-step 4:php artisan cache:clear  
-step 5:php artisan config:clear
-step 7:php artisan serve
+cp .env.example .env
+composer install
+php artisan key:generate
+php artisan cache:clear && php artisan config:clear
+php artisan serve
 ```
 
 ## Before starting <br>
@@ -43,7 +42,7 @@ DB_PASSWORD={PASSWORD}
 
 Migrate the tables
 ```
-step 6:php artisan migrate
+php artisan migrate
 ```
 
 ## Contributing

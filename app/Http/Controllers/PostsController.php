@@ -3,16 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Post;
-use App\Models\Comment;
-use App\Models\User;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-use DB;
-use App\Http\Controllers\Requests\PostsRequest;
+use App\Models\Comment;
+use Illuminate\Database\Eloquent\Model;
+
 class PostsController extends Controller
 {
- 
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
+    }
+   
+    public function showComment($slug)
+    {
+        return view('posts.show', [
+            'post'     => $post,
+            'comments' => $post->comments()->paginate(5)
+        ]);
+    }
+    public function storeComment(PostsRequest $request)
+    {
+        $data = $request->validated();
+
+        $post = new Post();
+        $post->title = $data['title'];
+        $post->text  = $data['text'];
+        $post->save();
+
+        return redirect('/blog/'.$post->id);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
@@ -74,36 +99,19 @@ class PostsController extends Controller
      * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    // public function show($slug)
-    // {
-    //     $post =  Post::where('slug', $slug)->first();
-    //     $comments =  Comment::where('post_id', $post->id)->paginate();
-
-    //     return view('blog.show')
-    //     //     ->with([
-    //     //         'post'=> $post,
-    //     //         'comments' => $comments
-    //     // ]);
-    //     ->with('post', Post::where('slug', $slug)->first());
-    // }
-    public function show($slug, Post $post)
-    {
-        return view('blog.show', [
-            'post'     => $post,
-            // 'comments' => $post->comments()->paginate(5)
-        ])->with('post', Post::where('slug', $slug)->first());
-    }
-
-    public function showComment($slug)
+    public function show($slug)
     {
         $post =  Post::where('slug', $slug)->first();
-     
-        return view('posts.show', [
-            'post'     => $post,
-            // 'comments' => $post->comments()->paginate(5)
+        $comments =  Comment::where('post_id', $post->id)->paginate();
+
+        return view('blog.show')
+            ->with([
+                'post'=> $post,
+                'comments' => $comments
         ]);
     }
     
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -154,22 +162,12 @@ class PostsController extends Controller
         $post->delete();
 
         return redirect('/blog')
-            ->with('message', 'Your post has been deleted!');
+         
+        ->with('message', 'Your post has been deleted!');
     }
     public function search(Request $request){
         $posts = Post::where('title', 'like', '%' .$request->search . '%')->get();
     return view('blog.search_post',compact('posts'));
     }
-    public function storeComment(Request $request)
-    {
-        $data = $request->validated();
-
-        $post = new Post();
-        $post->title = $data['title'];
-        $post->text  = $data['text'];
-        $post->save();
-
-        return redirect('/blog/'.$post->id);
-    }
-    
 }
+

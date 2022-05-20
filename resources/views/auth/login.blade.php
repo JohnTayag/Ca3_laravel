@@ -12,12 +12,17 @@
 
                 <form class="w-full hover:bg-blue-300 px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST" action="{{ route('login') }}">
                     @csrf
-                    
+
                     <div class="form-group row">
                         <div class="col-md-6 offset-md-3">
-                            <a href="{{ route('login.google') }}" class="btn btn-danger btn-block bg-red-500">Login with Google</a>
-                            <a href="{{ route('login.facebook') }}" class="btn btn-danger btn-block bg-blue-500">Login with Facebook</a>
-                            {{-- <a href="{{ route('login.github') }}" class="btn btn-danger btn-block">Login with Github</a> --}}
+                   <a href="{{ route('login.google') }}"
+                                           class="w-full select-none bg-blue-500 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full"
+                                           
+                                           {{-- {{ __('Google') }} --}}
+                                           >
+                                           Google Login
+                                       </a>
+
                         </div>
                     </div>
 
@@ -63,7 +68,7 @@
                         </label>
 
                         @if (Route::has('password.request'))
-                        <a class="text-sm text-red-500 hover:text-blue-700 whitespace-no-wrap no-underline hover:underline ml-auto"
+                        <a class="text-sm text-purple-500 hover:text-blue-700 whitespace-no-wrap no-underline hover:underline ml-auto"
                             href="{{ route('password.request') }}">
                             {{ __('Forgot Your Password?') }}
                         </a>
@@ -79,7 +84,7 @@
                         @if (Route::has('register'))
                         <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
                             {{ __("Don't have an account?") }}
-                            <a class="text-red-500 hover:text-blue-700 no-underline hover:underline" href="{{ route('register') }}">
+                            <a class="text-purple-500 hover:text-blue-700 no-underline hover:underline" href="{{ route('register') }}">
                                 {{ __('Register') }}
                             </a>
                         </p>

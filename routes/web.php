@@ -1,12 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//added below for about page
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\CommentController;
+//added these two for about page
 use App\Http\Controllers\AboutController;
-// use App\Http\Controllers\CommentsController;
-use \App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,26 +20,28 @@ use \App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Route::get('/', [PagesController::class, 'index']);
 Route::get('/', [PagesController::class, 'index'])->name('index');
 
-Route::resource('/blog', PostsController::class); 
+Route::resource('/blog', PostsController::class);
 Route::resource('/about', AboutController::class);
+
+
 Auth::routes();
 
-// Route::post('/blog/{post}/comments', [CommentsController::class, 'storeComment']);
-// Route::delete('/comments/{comment}', [CommentsController::class, 'destroy']); 
+    Route::get('/redirect', '\App\Http\Controllers\Auth\LoginController@redirectToProvider');
 
+    Route::get('/callback', '\App\Http\Controllers\Auth\LoginController@handleProviderCallback');
+
+// Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/about', [\App\Http\Controllers\AboutController::class, 'about'])->name('about');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+
+Route::post('/blog/{post}/comments', [CommentController::class, 'storeComment']);
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
 
 // Google login
 Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
-
-// Twitter login
-Route::get('login/twitter', [App\Http\Controllers\Auth\LoginController::class, 'redirectToTwitter'])->name('login.twitter');
-Route::get('login/twitter/callback', [App\Http\Controllers\Auth\LoginController::class, 'handlTwiiterCallback']);
-
-// Github login
-Route::get('login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
-Route::get('login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
